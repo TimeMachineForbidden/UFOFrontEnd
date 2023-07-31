@@ -6,6 +6,7 @@ import Dm1 from '../components/DataManagement/Dm1.vue'
 import Dm2 from '../components/DataManagement/Dm2.vue'
 import Display1 from '../components/display/Display1.vue'
 import Display2 from '../components/display/Display2.vue'
+import Display3 from '../components/display/Display3.vue'
 const routes = [
   {
     path: '/',
@@ -25,6 +26,11 @@ const routes = [
       { path: "/dm2", component: Dm2 },
     ]
   },
+  {
+    path: '/snack',
+    name: 'little thung',
+    component: Display3
+  }
 ]
 
 const router = createRouter({
