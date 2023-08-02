@@ -4,7 +4,7 @@
             <el-header style="padding: 0;">
                 <div>
                     <img src="../assets/1.png">
-                    <span style="color: white;">UFO在线数据分析</span>
+                    <span style="color: white;">UFO Online Data Analysis</span>
                 </div>
                 <el-dropdown>
                     <span class="el-dropdown-link" style="color: white;">
@@ -15,9 +15,9 @@
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item>首页</el-dropdown-item>
-                            <el-dropdown-item>展区1</el-dropdown-item>
-                            <el-dropdown-item>展区2</el-dropdown-item>
+                            <el-dropdown-item>HomePage</el-dropdown-item>
+                            <el-dropdown-item>exhibition1</el-dropdown-item>
+                            <el-dropdown-item>exhibition2</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -32,14 +32,14 @@
                                 <el-icon>
                                     <Histogram />
                                 </el-icon>
-                                <span>页面展示</span>
+                                <span>Exhibition</span>
                             </template>
                             <el-menu-item index="/dis1">
                                 <template #title>
                                     <el-icon>
                                         <IconMenu />
                                     </el-icon>
-                                    <span>展区1</span>
+                                    <span>SpaceAndWorld</span>
                                 </template>
                             </el-menu-item>
                             <el-menu-item index="/dis2">
@@ -47,7 +47,15 @@
                                     <el-icon>
                                         <IconMenu />
                                     </el-icon>
-                                    <span>展区2</span>
+                                    <span>Time</span>
+                                </template>
+                            </el-menu-item>
+                            <el-menu-item index="/dis3">
+                                <template #title>
+                                    <el-icon>
+                                        <IconMenu />
+                                    </el-icon>
+                                    <span>Description</span>
                                 </template>
                             </el-menu-item>
                         </el-sub-menu>
@@ -56,14 +64,14 @@
                                 <el-icon>
                                     <Histogram />
                                 </el-icon>
-                                <span>数据管理</span>
+                                <span>DataManagement</span>
                             </template>
                             <el-menu-item index="/dm1">
                                 <template #title>
                                     <el-icon>
                                         <IconMenu />
                                     </el-icon>
-                                    <span>管理1</span>
+                                    <span>Management1</span>
                                 </template>
                             </el-menu-item>
                             <el-menu-item index="/dm2">
@@ -71,7 +79,7 @@
                                     <el-icon>
                                         <IconMenu />
                                     </el-icon>
-                                    <span>管理2</span>
+                                    <span>Management2</span>
                                 </template>
                             </el-menu-item>
                         </el-sub-menu>
