@@ -3,7 +3,7 @@
         <el-container class="home-container">
             <el-header style="padding: 0;">
                 <div>
-                    <img src="../assets/1.png">
+                    <img src="../assets/blueufo.png">
                     <span style="color: white;">UFO Online Data Analysis</span>
                 </div>
                 <el-dropdown>
@@ -23,7 +23,7 @@
                 </el-dropdown>
             </el-header>
             <el-container>
-                <el-aside :width="isCollapse ? '64px' : '150px'">
+                <el-aside :width="isCollapse ? '64px' : '190px'">
                     <el-menu active-text-color="#ffd04b" background-color="#333744" class="el-menu-vertical-demo"
                         text-color="#fff" unique-opened :collapse="isCollapse" :collapse-transition="false" :router="true">
                         <div class="toggle-button" @click="toggleCol">|||</div>
@@ -127,15 +127,16 @@ export default {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
 
+body {
+    background: #060c21;
 }
 
 .common-layout,
 .home-container {
     height: 100%;
 }
-
-
 
 .el-header {
     padding: 0;
@@ -175,7 +176,8 @@ export default {
 }
 
 .el-main {
-    background-color: white;
+    --el-main-padding: 0;
+    background-color: #060c21;
 }
 
 .toggle-button {

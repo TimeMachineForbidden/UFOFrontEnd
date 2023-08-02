@@ -1,5 +1,5 @@
 <template>
-    <div id="myChart" style="width:1000px;height:800px"></div>
+    <div id="myChart" style="width:50%;height:70%"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
@@ -19,25 +19,25 @@ export default {
         const dimension = 0;
         //各个州对应的颜色
         const stateColors = {
-            California: "#00008b",
-            Florida: "#f00",
-            Washington: "#ffde00",
-            Texas: "#002a8f",
-            "New York": "#003580",
-            Pennsylvania: "#ed2939",
-            Arizona: "#000",
-            Ohio: "#003897",
-            Illinois: "#f93",
-            "North Carolina": "#bc002d",
-            Michigan: "#024fa2",
-            Oregon: "#000",
-            Colorado: "#00247d",
-            "New Jersey": "#ef2b2d",
-            Missouri: "#dc143c",
-            Georgia: "#d52b1e",
-            Indiana: "#e30a17",
-            Virginia: "#00247d",
-            Massachusetts: "#b22234",
+            Light: "#00008b",
+            Unknown: "#f00",
+            Disk: "#ffde00",
+            Cube: "#002a8f",
+            Triangle: "#003580",
+            Sphere: "#ed2939",
+            Other: "#000",
+            Orb: "#003897",
+            Fireball: "#f93",
+            Circle: "#bc002d",
+            Changing: "#024fa2",
+            Cigar: "#000",
+            Flash: "#00247d",
+            Diamond: "#ef2b2d",
+            Formation: "#dc143c",
+            Egg: "#d52b1e",
+            Star: "#e30a17",
+            Cylinder: "#00247d",
+            Chevron: "#b22234",
         }
         axios.all([
             axios.get('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
@@ -82,7 +82,7 @@ export default {
                     max: 10,
                     axisLabel: {
                         show: true,
-                        fontSize: 14,
+                        fontSize: 20,
                         formatter: function (value) {
                             return value;
                         },
@@ -112,6 +112,7 @@ export default {
                         },
                         label: {
                             show: true,
+                            fontSize: 15,
                             precision: 1,
                             position: 'right',
                             valueAnimation: true,

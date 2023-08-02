@@ -12,6 +12,7 @@ import Display3Vue from '@/components/display/Display3.vue'
 import threeDWorld from '../components/display/Charts/ThreeDWorld.vue'
 import DynamicBar from '../components/display/Charts/DynamicBar.vue'
 import DynamicLine from '../components/display/Charts/DynamicLine.vue'
+import GLScatter from '../components/display/Charts/GLScatter.vue'
 const routes = [
   {
     path: '/',
@@ -34,7 +35,7 @@ const routes = [
   {
     path: '/snack',
     name: 'little thung',
-    component: DynamicLine
+    component: GLScatter
   }
 ]
 

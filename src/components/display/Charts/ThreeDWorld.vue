@@ -1,4 +1,5 @@
 <template>
+    <div v-if="isLoading">Loading</div>
     <div id="myChart" style="width:100%;height:100%"></div>
 </template>
 <script>
@@ -9,7 +10,7 @@ export default {
 
     data() {
         return {
-
+            isLoading: true
         }
     },
     mounted() {
@@ -75,6 +76,7 @@ export default {
             myChart.setOption(option);
         })
         option && myChart.setOption(option);
+        this.isLoading = false
     }
 }
 </script>
