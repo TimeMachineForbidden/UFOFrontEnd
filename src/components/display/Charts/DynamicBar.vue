@@ -1,5 +1,5 @@
 <template>
-    <div id="myChart" style="width:50%;height:70%"></div>
+    <div id="myChart" style="width:100%;height:100%"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
@@ -82,19 +82,19 @@ export default {
                     max: 10,
                     axisLabel: {
                         show: true,
-                        fontSize: 20,
+                        fontSize: 10,
                         formatter: function (value) {
                             return value;
                         },
                         rich: {
                             flag: {
-                                fontSize: 25,
+                                fontSize: 15,
                                 padding: 5
                             }
                         }
                     },
-                    animationDuration: 300,
-                    animationDurationUpdate: 300
+                    animationDuration: 100,
+                    animationDurationUpdate: 100
                 },
                 series: [
                     {

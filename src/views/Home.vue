@@ -6,21 +6,7 @@
                     <img src="../assets/blueufo.png">
                     <span style="color: white;">UFO Online Data Analysis</span>
                 </div>
-                <el-dropdown>
-                    <span class="el-dropdown-link" style="color: white;">
-                        Dropdown List
-                        <el-icon class="el-icon--right">
-                            <arrow-down />
-                        </el-icon>
-                    </span>
-                    <template #dropdown>
-                        <el-dropdown-menu>
-                            <el-dropdown-item>HomePage</el-dropdown-item>
-                            <el-dropdown-item>exhibition1</el-dropdown-item>
-                            <el-dropdown-item>exhibition2</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </template>
-                </el-dropdown>
+                <ufobuttton></ufobuttton>
             </el-header>
             <el-container>
                 <el-aside :width="isCollapse ? '64px' : '190px'">
@@ -105,6 +91,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 <script>
 import SideBar from '@/components/SideBar.vue';
 import MyPageHeader from '@/components/MyPageHeader.vue';
+import ufobuttton from '@/components/snacks/ufobutton.vue';
 export default {
     components: { SideBar, MyPageHeader },
     data() {

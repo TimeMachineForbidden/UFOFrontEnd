@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" @click="method1">
         <!-- javascript:void(0)是js的关键字,可以阻止连接跳转 -->
         <a href="javascript:void(0);" style="--i: 1">ufo</a>
     </div>
@@ -7,69 +7,103 @@
 <script>
 export default {
 
+    methods: {
+        method1() {
+            console.log("aa");
+        }
+    },
 }
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
-body {
-    margin: 0;
+* {
+    /* 初始化 清除页面元素的内外边距 */
     padding: 0;
+    margin: 0;
+}
+
+.container {
+    /* 弹性布局 让页面元素垂直+水平居中 */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #060c21;
-    font-family: 'Poppins', sans-serif;
+    /* 让子元素垂直排列 */
+    flex-direction: column;
+    /* 宽度占浏览器可视窗口总宽度 高度占浏览器可视区域总高度 */
+    width: 140px;
+    height: 50px;
+    background-color: #000;
 }
 
-.box {
+.container a {
+    /* 相对定位 */
     position: relative;
-    width: 300px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #060c21;
-    animation: animate 4s linear infinite;
+    /* 将a这个行内元素转为块级元素不然无法设置宽和高 */
+    display: block;
+    width: 140px;
+    height: 50px;
+    /* 行高 */
+    line-height: 50px;
+    text-align: center;
+    margin: 40px;
+    color: aqua;
+    font-size: 20px;
+    /* 取消下划线 */
+    text-decoration: none;
+    /* 加一下一些过渡事件 */
+    transition: all 0.3s ease-in-out;
+    /* 重头戏来了,改变各个元素的颜色,一句话就能搞定 */
+    /* hue-rotate是颜色滤镜 可以加不同的度数来改变颜色
+  这里我们用了calc自动计算的方法,还有var函数来调用我们给每一个a设置的不同的属性值1~5,然后分别乘以60度,就能够分别得到不同的度数 */
+    filter: hue-rotate(calc(var(--i) * 60deg));
 }
 
-.box:before {
-    content: '';
+.container a::before,
+.container a::after {
+    /* 将两个伪元素的相同部分写在一起 */
+    content: "";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: #fff;
-    z-index: -1;
+    width: 20px;
+    height: 20px;
+    border: 2px solid aqua;
+    /* 最后的.3s是延迟时间 */
+    transition: all 0.3s ease-in-out 0.3s;
 }
 
-.box:before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: #fff;
-    z-index: -2;
-    filter: blur(40px)
+.container a::before {
+    top: 0;
+    left: 0;
+    /* 删除左边的伪元素的右和下边框 */
+    border-right: 0;
+    border-bottom: 0;
 }
 
-.box:before,
-.box:after {
-    background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
+.container a::after {
+    right: 0;
+    bottom: 0;
+    /* 删除右边的伪元素的上边和左边的边框 */
+    border-top: 0;
+    border-left: 0;
 }
 
-.content {
-    padding: 20px;
-    box-sizing: border-box;
-    color: #fff;
+.container a:hover {
+    background-color: aqua;
+    color: #000;
+    /* 加个发光效果和下面的倒影 */
+    /* 模糊度加到了50px */
+    box-shadow: 0 0 50px aqua;
+    /* below 是下倒影 1px是倒影的元素相隔的距离 最后是个渐变的颜色 */
+    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+    /* 设置一下以上属性的延迟时间 */
+    transition-delay: 0.4s;
 }
 
-@keyframes animate {
-    100% {
-        filter: hue-rotate(360deg);
-    }
-}</style>
+/* 在设置两条线的变化 总体来说四条各个方向的 只需要改变一下两个伪元素的宽度和高度 */
+.container a:hover::before,
+.container a:hover::after {
+    width: 138px;
+    height: 48px;
+    transition-delay: 0s;
+}
+</style>

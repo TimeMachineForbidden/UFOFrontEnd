@@ -1,6 +1,6 @@
 <template>
     <div v-if="isLoading">Loading</div>
-    <div id="myChart" style="width:1000px;height:800px"></div>
+    <div id="myChartLine" style="width:100%;height:100%"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
@@ -13,7 +13,7 @@ export default {
         }
     },
     mounted() {
-        var chartDom = document.getElementById('myChart');
+        var chartDom = document.getElementById('myChartLine');
         var myChart = echarts.init(chartDom);
         var option;
         const states = [
@@ -77,7 +77,7 @@ export default {
                 });
             });
             option = {
-                animationDuration: 10000,
+                animationDuration: 20000,
                 dataset: [
                     {
                         id: 'dataset_raw',
