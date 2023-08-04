@@ -1,15 +1,6 @@
 <template>
     <div class="box">
-        <div class="content">
-            <div class="upbox">
-                <div class="column1">
-                    <DynamicBar></DynamicBar>
-                </div>
-            </div>
-            <div class="downbox">
-                <DynamicLine></DynamicLine>
-            </div>
-        </div>
+        1
     </div>
 </template>
 <script>
@@ -33,7 +24,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #060c21;
+    background-image: url(../../assets/galaxy.png) no-repeat;
+    background-size: cover;
 }
 
 .box:before {
@@ -58,38 +50,5 @@ export default {
     background: #fff;
     z-index: -1;
     filter: blur(40px);
-}
-
-.box:before,
-.box:after {
-    background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
-}
-
-.content {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    color: #fff;
-}
-
-.upbox {
-    display: flex;
-    max-width: 1920px;
-    height: 50%;
-    margin: 0 auto;
-    background-color: pink;
-}
-
-.column1 {
-    flex: 1;
-    background-color: white;
-}
-
-
-.downbox {
-    max-width: 1920px;
-    height: 50%;
-    background-color: white;
-    border-top: 1px solid blue;
 }
 </style>

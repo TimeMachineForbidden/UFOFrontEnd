@@ -1,9 +1,11 @@
 <template>
-    <div class="upbox">
-        <DynamicBar></DynamicBar>
-    </div>
-    <div class="downbox">
-        <DynamicLine></DynamicLine>
+    <div class="overbox">
+        <div class="upbox">
+            <DynamicBar></DynamicBar>
+        </div>
+        <div class="downbox">
+            <DynamicLine></DynamicLine>
+        </div>
     </div>
 </template>
 <script>
@@ -26,14 +28,20 @@ export default {
     width: 100%;
     height: 50%;
     margin: 0 auto;
-    background-color: white;
 }
 
 
 .downbox {
     max-width: 1920px;
     width: 100%;
-    background-color: white;
+    height: 50%;
+
     border-top: 1px solid blue;
+}
+
+.overbox {
+    height: 100%;
+    width: 100%;
+    background-image: url(../../assets/b1.jpg);
 }
 </style>

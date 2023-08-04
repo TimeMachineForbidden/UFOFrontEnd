@@ -22,25 +22,25 @@ export default {
         const dimension = 0;
         //各个州对应的颜色
         const stateColors = {
-            Light: "#00008b",
-            Unknown: "#f00",
-            Disk: "#ffde00",
-            Cube: "#002a8f",
-            Triangle: "#003580",
-            Sphere: "#ed2939",
-            Other: "#000",
-            Orb: "#003897",
-            Fireball: "#f93",
-            Circle: "#bc002d",
-            Changing: "#024fa2",
-            Cigar: "#000",
-            Flash: "#00247d",
-            Diamond: "#ef2b2d",
-            Formation: "#dc143c",
-            Egg: "#d52b1e",
-            Star: "#e30a17",
-            Cylinder: "#00247d",
-            Chevron: "#b22234",
+            light: "#00008b",
+            unknown: "#f00",
+            disk: "#ffde00",
+            cube: "#002a8f",
+            triangle: "#003580",
+            sphere: "#ed2939",
+            other: "#000",
+            orb: "#003897",
+            fireball: "#f93",
+            circle: "#bc002d",
+            changing: "#024fa2",
+            cigar: "#000",
+            flash: "#00247d",
+            diamond: "#ef2b2d",
+            formation: "#dc143c",
+            egg: "#d52b1e",
+            star: "#e30a17",
+            cylinder: "#00247d",
+            chevron: "#b22234",
         }
         axios.all([
             axios.get('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
@@ -85,7 +85,11 @@ export default {
                     max: 10,
                     axisLabel: {
                         show: true,
-                        fontSize: 10,
+                        color: 'white', // 字体颜色
+                        fontSize: 14, // 字体大小
+                        fontStyle: 'italic', // 字体样式，比如'normal', 'italic', 'oblique'
+                        fontWeight: 'bold', // 字体粗细，比如'normal', 'bold', 'bolder', 'lighter'
+                        fontFamily: 'Arial, sans-serif', // 字体系列
                         formatter: function (value) {
                             return value;
                         },
@@ -137,7 +141,7 @@ export default {
                             style: {
                                 text: startYear,
                                 font: 'bolder 80px monospace',
-                                fill: 'rgba(100, 100, 100, 0.25)'
+                                fill: 'rgba(255, 255, 255, 0.25)',
                             },
                             z: 100
                         }
@@ -167,8 +171,4 @@ export default {
     }
 }
 </script>
-<style>
-#myChartDBar {
-    background-color: white;
-}
-</style>
+<style></style>

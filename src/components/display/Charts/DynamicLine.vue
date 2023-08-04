@@ -93,7 +93,14 @@ export default {
                     nameLocation: 'middle'
                 },
                 yAxis: {
-                    name: 'Count'
+                    name: 'Count',
+                    axisLabel: { // 设置y轴标注字体样式
+                        color: 'white', // 字体颜色
+                        fontSize: 14, // 字体大小
+                        fontStyle: 'italic', // 字体样式，比如'normal', 'italic', 'oblique'
+                        fontWeight: 'bold', // 字体粗细，比如'normal', 'bold', 'bolder', 'lighter'
+                        fontFamily: 'Arial, sans-serif' // 字体系列
+                    }
                 },
                 grid: {
                     right: 140

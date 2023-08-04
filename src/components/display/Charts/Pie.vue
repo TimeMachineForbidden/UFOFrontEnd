@@ -1,7 +1,7 @@
 <template>
     <div id="myChartP" style="width:100%;height:100%"></div>
 </template>
-<script>
+<script scoped>
 import * as echarts from 'echarts';
 import axios from 'axios'
 export default {
@@ -22,7 +22,8 @@ export default {
                     title: {
                         text: 'Shape ',
                         textStyle: {
-                            fontFamily: 'Play'
+                            fontFamily: 'Play',
+                            color: 'white'
                         },
                         left: 'left'
                     },
@@ -35,13 +36,12 @@ export default {
                         {
                             name: '形状占比',
                             type: 'pie',
-                            radius: [15, 90],
+                            radius: [20, 110],
                             center: ['50%', '50%'],
                             roseType: 'area',
                             itemStyle: {
                                 borderRadius: 5
                             },
-                            fontFamily: 'Play',
                             data: response.data.data
                         }
                     ]

@@ -1,7 +1,7 @@
 <template>
-    <div id="myChartWC1" style="width:93%;height:93%"></div>
+    <div id="myChartWC1" style="width:100%;height:100%"></div>
 </template>
-<script>
+<script scoped>
 
 import * as echarts from 'echarts';
 import 'echarts-wordcloud'
@@ -21,9 +21,8 @@ export default {
                 },
                 series: [{
                     type: 'wordCloud',
-                    shape: 'circle',
+                    shape: 'diamond',
                     keepAspect: false,
-                    // maskImage: maskImage,
                     left: 'center',
                     top: 'center',
                     width: '100%',

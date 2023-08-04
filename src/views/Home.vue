@@ -12,7 +12,11 @@
                 <el-aside :width="isCollapse ? '64px' : '190px'">
                     <el-menu active-text-color="#ffd04b" background-color="#333744" class="el-menu-vertical-demo"
                         text-color="#fff" unique-opened :collapse="isCollapse" :collapse-transition="false" :router="true">
-                        <div class="toggle-button" @click="toggleCol">|||</div>
+                        <div class="toggle-button" @click="toggleCol">
+                            <el-icon>
+                                <Pointer />
+                            </el-icon>
+                        </div>
                         <el-sub-menu index="1">
                             <template #title>
                                 <el-icon>
@@ -50,6 +54,14 @@
                                         <IconMenu />
                                     </el-icon>
                                     <span>Distribution</span>
+                                </template>
+                            </el-menu-item>
+                            <el-menu-item index="/dis5">
+                                <template #title>
+                                    <el-icon>
+                                        <IconMenu />
+                                    </el-icon>
+                                    <span>Words</span>
                                 </template>
                             </el-menu-item>
                         </el-sub-menu>
@@ -98,7 +110,9 @@ import {
     Sunrise,
     Clock,
     CircleCheck,
-    EditPen
+    EditPen,
+    Position,
+    Pointer
 } from '@element-plus/icons-vue'
 </script>
 <script>
@@ -159,12 +173,13 @@ body {
 
 .el-header {
     padding: 0;
-    background-color: black;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 28px;
     font-family: Play;
+    background-color: #000;
 }
 
 .el-header div {

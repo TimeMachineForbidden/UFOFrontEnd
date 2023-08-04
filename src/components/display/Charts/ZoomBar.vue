@@ -1,7 +1,7 @@
 <template>
-    <div id="myChartZB" style="width:500px;height: 100%;"></div>
+    <div id="myChartZB" style="width:100%;height: 100%;"></div>
 </template>
-<script>
+<script scoped>
 import * as echarts from 'echarts';
 import axios from 'axios'
 export default {
@@ -28,7 +28,11 @@ export default {
             option = {
                 title: {
                     text: 'Time Distribution',
-                    subtext: '点击、滚动放大'
+                    subtext: '点击、滚动放大',
+                    textStyle: {
+                        fontFamily: 'Play',
+                        color: 'white'
+                    }
                 },
                 xAxis: {
                     type: 'category',
@@ -99,6 +103,8 @@ export default {
 }
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&family=Ubuntu:ital@1&display=swap');
+
 #myChartZB {
     position: absolute;
     padding-left: 10px;

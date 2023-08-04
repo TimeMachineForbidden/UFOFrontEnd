@@ -10,6 +10,7 @@ import Display2P3 from '../components/display/Display2P3.vue'
 import Display3 from '../components/display/Display3.vue'
 import Display3P2 from '../components/display/Display3P2.vue'
 import Display4 from '../components/display/Display4.vue'
+import Display5 from '../components/display/Display5.vue'
 import WordsCloud from '../components/display/Charts/wordsCloud.vue'
 import Pie from '../components/display/Charts/Pie.vue'
 import Display3Vue from '@/components/display/Display3.vue'
@@ -38,6 +39,7 @@ const routes = [
       { path: "/dis3", component: Display3 },
       { path: "/dis3p2", component: Display3P2 },
       { path: "/dis4", component: Display4 },
+      { path: "/dis5", component: Display5 },
       { path: "/dm1", component: Dm1 },
       { path: "/dm2", component: Dm2 },
     ]

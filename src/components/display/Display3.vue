@@ -31,19 +31,18 @@ export default {
     display: grid;
     max-width: 1920px;
     height: 100%;
+    background-image: url(../../assets/b2.jpg);
 }
 
 .insidebox1 {
     position: relative;
     ;
     grid-area: 1/1/3/2;
-    background-color: aliceblue;
 }
 
 .insidebox2 {
     position: relative;
     grid-area: 1/2/2/3;
-    background-color: antiquewhite;
     display: flex;
     /* 使用弹性盒子布局 */
     justify-content: center;
@@ -55,7 +54,6 @@ export default {
 .insidebox3 {
     position: relative;
     grid-area: 2/2/3/3;
-    background-color: aqua;
-    
+
 }
 </style>
