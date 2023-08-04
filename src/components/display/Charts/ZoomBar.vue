@@ -1,5 +1,5 @@
 <template>
-    <div id="myChart" style="width:1000px;height:600px"></div>
+    <div id="myChartZB" style="width:500px;height: 100%;"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
@@ -7,17 +7,18 @@ import axios from 'axios'
 export default {
 
     data() {
+        return {
 
+        }
     },
     mounted() {
-        axios.get("http://49.232.241.171:8080/timeSection").then((respones) => {
-            var chartDom = document.getElementById('myChart');
+        axios.get("http://49.232.241.171:8080/ufo/timeSection").then((respones) => {
+            var chartDom = document.getElementById('myChartZB');
             var myChart = echarts.init(chartDom);
             var option;
 
             // prettier-ignore
             let dataAxis = respones.data.data.independentVariable
-            console.log(dataAxis)
             let data = respones.data.data.dependentVariable
             let yMax = 36000;
             let dataShadow = [];
@@ -26,13 +27,12 @@ export default {
             }
             option = {
                 title: {
-                    text: '特性示例：渐变色 阴影 点击缩放',
-                    subtext: 'Feature Sample: Gradient Color, Shadow, Click Zoom'
+                    text: 'Time Distribution',
+                    subtext: '点击、滚动放大'
                 },
                 xAxis: {
                     type: 'category',
                     data: dataAxis,
-
                     axisTick: {
                         show: false
                     },
@@ -50,7 +50,7 @@ export default {
                     },
                     axisLabel: {
                         color: '#999'
-                    }
+                    },
                 },
                 dataZoom: [
                     {
@@ -98,4 +98,9 @@ export default {
     }
 }
 </script>
-<style></style>
+<style>
+#myChartZB {
+    position: absolute;
+    padding-left: 10px;
+}
+</style>

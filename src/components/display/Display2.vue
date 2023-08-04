@@ -1,8 +1,6 @@
 <template>
     <div class="upbox">
-        <div class="column1">
-            <DynamicBar></DynamicBar>
-        </div>
+        <DynamicBar></DynamicBar>
     </div>
     <div class="downbox">
         <DynamicLine></DynamicLine>
@@ -25,21 +23,16 @@ export default {
 <style>
 .upbox {
     display: flex;
-    max-width: 1920px;
+    width: 100%;
     height: 50%;
     margin: 0 auto;
-    background-color: pink;
-}
-
-.column1 {
-    flex: 1;
     background-color: white;
 }
 
 
 .downbox {
     max-width: 1920px;
-    height: 50%;
+    width: 100%;
     background-color: white;
     border-top: 1px solid blue;
 }

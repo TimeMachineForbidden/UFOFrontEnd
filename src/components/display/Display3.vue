@@ -1,21 +1,29 @@
 <template>
     <div class="mainbox">
-        <div class="insidebox1"></div>
-        <div class="insidebox2"></div>
-        <div class="insidebox3"></div>
-        <div class="insidebox4"></div>
-        <div class="insidebox5"></div>
+        <div class="insidebox1">
+            <ZoomBar></ZoomBar>
+        </div>
+        <div class="insidebox2">
+            <WordsCloud></WordsCloud>
+        </div>
+        <div class="insidebox3">
+            <Pie></Pie>
+        </div>
     </div>
 </template>
 <script>
-export default {
+import ZoomBar from './Charts/ZoomBar.vue';
+import WordsCloud from './Charts/wordsCloud.vue';
+import Pie from './Charts/Pie.vue';
 
+
+export default {
     data() {
 
     },
     mounted() {
-
-    }
+    },
+    components: { ZoomBar, WordsCloud, Pie }
 }
 </script>
 <style>
@@ -26,27 +34,28 @@ export default {
 }
 
 .insidebox1 {
+    position: relative;
+    ;
     grid-area: 1/1/3/2;
     background-color: aliceblue;
 }
 
 .insidebox2 {
+    position: relative;
     grid-area: 1/2/2/3;
     background-color: antiquewhite;
+    display: flex;
+    /* 使用弹性盒子布局 */
+    justify-content: center;
+    /* 水平居中对齐 */
+    align-items: center;
+    /* 垂直居中对齐 */
 }
 
 .insidebox3 {
+    position: relative;
     grid-area: 2/2/3/3;
     background-color: aqua;
-}
-
-.insidebox4 {
-    grid-area: 1/3/2/4;
-    background-color: aquamarine;
-}
-
-.insidebox5 {
-    grid-area: 2/3/3/4;
-    background-color: black;
+    
 }
 </style>

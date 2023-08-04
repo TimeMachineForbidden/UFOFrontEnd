@@ -6,7 +6,7 @@
                     <img src="../assets/blueufo.png">
                     <span style="color: white;">UFO Online Data Analysis</span>
                 </div>
-                <ufobuttton></ufobuttton>
+                <ufobuttton @click="handleClick"></ufobuttton>
             </el-header>
             <el-container>
                 <el-aside :width="isCollapse ? '64px' : '190px'">
@@ -23,7 +23,7 @@
                             <el-menu-item index="/dis1">
                                 <template #title>
                                     <el-icon>
-                                        <IconMenu />
+                                        <Sunrise />
                                     </el-icon>
                                     <span>SpaceAndWorld</span>
                                 </template>
@@ -31,7 +31,7 @@
                             <el-menu-item index="/dis2">
                                 <template #title>
                                     <el-icon>
-                                        <IconMenu />
+                                        <Clock />
                                     </el-icon>
                                     <span>Time</span>
                                 </template>
@@ -39,33 +39,41 @@
                             <el-menu-item index="/dis3">
                                 <template #title>
                                     <el-icon>
-                                        <IconMenu />
+                                        <PieChart />
                                     </el-icon>
                                     <span>Description</span>
+                                </template>
+                            </el-menu-item>
+                            <el-menu-item index="/dis4">
+                                <template #title>
+                                    <el-icon>
+                                        <IconMenu />
+                                    </el-icon>
+                                    <span>Distribution</span>
                                 </template>
                             </el-menu-item>
                         </el-sub-menu>
                         <el-sub-menu index="2">
                             <template #title>
                                 <el-icon>
-                                    <Histogram />
+                                    <Management />
                                 </el-icon>
                                 <span>DataManagement</span>
                             </template>
                             <el-menu-item index="/dm1">
                                 <template #title>
                                     <el-icon>
-                                        <IconMenu />
+                                        <EditPen />
                                     </el-icon>
-                                    <span>Management1</span>
+                                    <span>Report</span>
                                 </template>
                             </el-menu-item>
                             <el-menu-item index="/dm2">
                                 <template #title>
                                     <el-icon>
-                                        <IconMenu />
+                                        <CircleCheck />
                                     </el-icon>
-                                    <span>Management2</span>
+                                    <span>Verify</span>
                                 </template>
                             </el-menu-item>
                         </el-sub-menu>
@@ -84,11 +92,17 @@ import {
     Menu as IconMenu,
     Location,
     Setting,
-    Histogram
+    Histogram,
+    Management,
+    PieChart,
+    Sunrise,
+    Clock,
+    CircleCheck,
+    EditPen
 } from '@element-plus/icons-vue'
-import { ArrowDown } from '@element-plus/icons-vue'
 </script>
 <script>
+
 import SideBar from '@/components/SideBar.vue';
 import MyPageHeader from '@/components/MyPageHeader.vue';
 import ufobuttton from '@/components/snacks/ufobutton.vue';
@@ -96,7 +110,9 @@ export default {
     components: { SideBar, MyPageHeader },
     data() {
         return {
-            isCollapse: false
+            isCollapse: false,
+            isD2P1: 1,
+            isD3P1: true
         }
     },
     created() {
@@ -105,11 +121,27 @@ export default {
     methods: {
         toggleCol() {//菜单伸缩
             this.isCollapse = !this.isCollapse
+        },
+        handleClick() {//按钮切换
+            const currentPath = this.$route.path;
+            if (currentPath === '/dis3' || currentPath === '/dis3p2') {
+                if (this.isD3P1) {
+                    this.isD3P1 = !this.isD3P1;
+                    this.$router.push('/dis3p2');
+                }
+                else {
+                    this.isD3P1 = !this.isD3P1;
+                    this.$router.push('/dis3');
+                }
+            }
+
         }
     }
 }
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -131,7 +163,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
+    font-size: 28px;
+    font-family: Play;
 }
 
 .el-header div {
@@ -164,7 +197,7 @@ body {
 
 .el-main {
     --el-main-padding: 0;
-    background-color: #060c21;
+
 }
 
 .toggle-button {

@@ -1,17 +1,13 @@
 <template>
-    <div class="container" @click="method1">
+    <div class="container">
         <!-- javascript:void(0)是js的关键字,可以阻止连接跳转 -->
         <a href="javascript:void(0);" style="--i: 1">ufo</a>
     </div>
 </template>
 <script>
 export default {
-
     methods: {
-        method1() {
-            console.log("aa");
-        }
-    },
+    }
 }
 </script>
 <style>

@@ -18,7 +18,7 @@ export default {
     },
     mounted() {
         let _this = this
-        axios.get("http://49.232.241.171:8080/monthDayNum").then((response) => {
+        axios.get("http://49.232.241.171:8080/ufo/monthDayNum").then((response) => {
             _this.candata = response.data.data
 
             var chartDom = document.getElementById('myChart');
@@ -48,12 +48,12 @@ export default {
                     max: 2200
                 },
                 calendar: {
-                    range: '2020'
+                    range: '2024'
                 },
                 series: {
                     type: 'heatmap',
                     coordinateSystem: 'calendar',
-                    data: getVirtualData('2020')
+                    data: getVirtualData('2024')
                 }
             };
 

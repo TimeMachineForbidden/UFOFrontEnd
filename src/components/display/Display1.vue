@@ -6,7 +6,6 @@
 <script>
 import 'echarts-gl';
 import ThreeDWorld from './Charts/ThreeDWorld.vue';
-
 export default {
     name: 'display1',
     data() {

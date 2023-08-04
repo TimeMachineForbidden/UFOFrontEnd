@@ -4,6 +4,7 @@
 <script>
 import axios from 'axios';
 import * as echarts from 'echarts';
+
 import 'echarts-gl';
 export default {
     data() {
@@ -13,6 +14,7 @@ export default {
         var chartDom = document.getElementById('myChart');
         var myChart = echarts.init(chartDom);
         var option;
+        var app = {};
         axios.get("http://49.232.241.171:8080/gps").then((response) => {
             var rawdata = response.data.data;
             var data = new Float32Array(rawdata);

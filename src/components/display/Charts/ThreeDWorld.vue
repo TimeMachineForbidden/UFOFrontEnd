@@ -17,7 +17,9 @@ export default {
         var chartDom = document.getElementById('myChart');
         var myChart = echarts.init(chartDom);
         var option;
-        axios.get("http://49.232.241.171:8080/latLonNum").then((response) => {
+        myChart.showLoading()
+        axios.get("http://49.232.241.171:8080/ufo/latLonNum").then((response) => {
+            myChart.hideLoading()
             var data = response.data.data.filter(function (dataItem) {
                 return dataItem[2] > 0;
             })

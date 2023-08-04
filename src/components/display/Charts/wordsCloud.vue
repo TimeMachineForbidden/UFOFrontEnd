@@ -1,17 +1,24 @@
 <template>
-    <div id="myChart" style="width:800px;height:600px"></div>
+    <div id="myChartWC1" style="width:93%;height:93%"></div>
 </template>
 <script>
+
 import * as echarts from 'echarts';
 import 'echarts-wordcloud'
 import axios from 'axios'
 export default {
     mounted() {
         let _this = this
-        axios.get("http://49.232.241.171:8080/words").then((response) => {
-            const echartDom = document.getElementById('myChart')
-            const myChart = echarts.init(echartDom)
+        const echartDom = document.getElementById('myChartWC1')
+        const myChartWC = echarts.init(echartDom)
+        myChartWC.showLoading()
+        axios.get("http://49.232.241.171:8080/ufo/words").then((response) => {
+            myChartWC.hideLoading()
             const option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '描述词词云: {b}({c})'
+                },
                 series: [{
                     type: 'wordCloud',
                     shape: 'circle',
@@ -26,11 +33,11 @@ export default {
                     sizeRange: [12, 60],
                     rotationRange: [-90, 90],
                     rotationStep: 45,
-                    gridSize: 8,
+                    gridSize: 6,
                     drawOutOfBound: false,
                     layoutAnimation: true,
                     textStyle: {
-                        fontFamily: 'sans-serif',
+                        fontFamily: 'Play',
                         fontWeight: 'bold',
                         color: function () {
                             return 'rgb(' + [
@@ -51,10 +58,10 @@ export default {
                     data: response.data.data
                 }]
             }
-            option && myChart.setOption(option)
+            option && myChartWC.setOption(option)
             //随着屏幕大小调节图表
             window.addEventListener("resize", () => {
-                myChart.resize();
+                myChartWC.resize();
             });
         })
     }
@@ -64,4 +71,11 @@ export default {
 }
 
 </script>
-<style></style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+#myChartWC1 {
+    position: absolute;
+    margin: 0 auto;
+}
+</style>

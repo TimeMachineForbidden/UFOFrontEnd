@@ -1,5 +1,5 @@
 <template>
-    <div id="myChart" style="width:100%;height:100%"></div>
+    <div id="myChartDBar" style="width:100%;height:100%"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
@@ -9,10 +9,13 @@ export default {
 
     data() {
 
+        return {
+
+        }
     },
     mounted() {
         var ROOT_PATH = 'https://echarts.apache.org/examples';
-        var chartDom = document.getElementById('myChart');
+        var chartDom = document.getElementById('myChartDBar');
         var myChart = echarts.init(chartDom);
         var option;
         const updateFrequency = 2000;
@@ -41,7 +44,7 @@ export default {
         }
         axios.all([
             axios.get('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
-            axios.get('http://49.232.241.171:8080/yearShapeNum')
+            axios.get('http://49.232.241.171:8080/ufo/yearShapeNum')
         ]).then(axios.spread(function (res1, res0) {
             const flags = res1.data;
             const data = res0.data.data;
@@ -164,3 +167,8 @@ export default {
     }
 }
 </script>
+<style>
+#myChartDBar {
+    background-color: white;
+}
+</style>

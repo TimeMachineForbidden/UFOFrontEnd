@@ -26,7 +26,7 @@ export default {
             'Arizona',
             'Ohio'
         ];
-        axios.get("http://49.232.241.171:8080/yearStateNum").then((response) => {
+        axios.get("http://49.232.241.171:8080/ufo/yearStateNum").then((response) => {
             run(response.data.data);
         });
         function run(_rawData) {
@@ -35,7 +35,6 @@ export default {
             const datasetWithFilters = [];
             const seriesList = [];
             echarts.util.each(states, function (state) {
-                console.log(state)
                 var datasetId = 'dataset_' + state;
                 datasetWithFilters.push({
                     id: datasetId,
@@ -85,9 +84,6 @@ export default {
                     },
                     ...datasetWithFilters
                 ],
-                title: {
-                    text: 'Count of several states of America since 1950'
-                },
                 tooltip: {
                     order: 'valueDesc',
                     trigger: 'axis'
