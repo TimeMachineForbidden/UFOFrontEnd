@@ -32,7 +32,7 @@
                                     <span>SpaceAndWorld</span>
                                 </template>
                             </el-menu-item>
-                            <el-menu-item index="/dis2">
+                            <el-menu-item index="/dis2p2">
                                 <template #title>
                                     <el-icon>
                                         <Clock />
@@ -56,14 +56,6 @@
                                     <span>Distribution</span>
                                 </template>
                             </el-menu-item>
-                            <el-menu-item index="/dis5">
-                                <template #title>
-                                    <el-icon>
-                                        <IconMenu />
-                                    </el-icon>
-                                    <span>Words</span>
-                                </template>
-                            </el-menu-item>
                         </el-sub-menu>
                         <el-sub-menu index="2">
                             <template #title>
@@ -80,7 +72,7 @@
                                     <span>Report</span>
                                 </template>
                             </el-menu-item>
-                            <el-menu-item index="/dm2">
+                            <el-menu-item index="/dm2" @click="handleVerify">
                                 <template #title>
                                     <el-icon>
                                         <CircleCheck />
@@ -96,6 +88,17 @@
                 </el-main>
             </el-container>
         </el-container>
+        <el-dialog v-model="LoginDialogVisible" title="Warning" width="50%" @close="handleClose">
+            <span>You need to Login</span>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button @click="LoginDialogVisible = false">Cancel</el-button>
+                    <el-button type="primary" @click="handleConfirm">
+                        Click to Login
+                    </el-button>
+                </span>
+            </template>
+        </el-dialog>
     </div>
 </template>
 <script  setup>
@@ -120,13 +123,14 @@ import {
 import SideBar from '@/components/SideBar.vue';
 import MyPageHeader from '@/components/MyPageHeader.vue';
 import ufobuttton from '@/components/snacks/ufobutton.vue';
+import axios from 'axios';
 export default {
     components: { SideBar, MyPageHeader },
     data() {
         return {
             isCollapse: false,
-            isD2P1: 1,
-            isD3P1: true
+            isD2P1: true,
+            isD3P1: true,
         }
     },
     created() {
@@ -148,8 +152,23 @@ export default {
                     this.$router.push('/dis3');
                 }
             }
+            else {
+                if (currentPath === '/dis2p2' || currentPath === '/dis2p3') {
+                    if (this.isD2P1) {
+                        this.isD2P1 = !this.isD2P1;
+                        this.$router.push('/dis2p3');
+                    }
+                    else {
+                        this.isD2P1 = !this.isD2P1;
+                        this.$router.push('/dis2p2');
+                    }
+                }
+            }
 
-        }
+        },
+        handleVerify() {
+
+        },
     }
 }
 </script>
@@ -173,7 +192,6 @@ body {
 
 .el-header {
     padding: 0;
-
     display: flex;
     justify-content: space-between;
     align-items: center;

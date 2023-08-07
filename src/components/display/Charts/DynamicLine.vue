@@ -76,7 +76,7 @@ export default {
                 });
             });
             option = {
-                animationDuration: 20000,
+                animationDuration: 5000,
                 dataset: [
                     {
                         id: 'dataset_raw',

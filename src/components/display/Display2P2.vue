@@ -1,9 +1,6 @@
 <template>
-    <div class="upbox">
+    <div class="dis2p2">
         <DynamicBar></DynamicBar>
-    </div>
-    <div class="downbox">
-        <DynamicLine></DynamicLine>
     </div>
 </template>
 <script>
@@ -21,19 +18,8 @@ export default {
 }
 </script>
 <style>
-.upbox {
-    display: flex;
+.dis2p2 {
+    height: 100%;
     width: 100%;
-    height: 50%;
-    margin: 0 auto;
-    background-color: white;
-}
-
-
-.downbox {
-    max-width: 1920px;
-    width: 100%;
-    background-color: white;
-    border-top: 1px solid blue;
 }
 </style>

@@ -22,26 +22,83 @@ export default {
         const dimension = 0;
         //各个州对应的颜色
         const stateColors = {
-            light: "#00008b",
-            unknown: "#f00",
-            disk: "#ffde00",
-            cube: "#002a8f",
-            triangle: "#003580",
-            sphere: "#ed2939",
-            other: "#000",
-            orb: "#003897",
-            fireball: "#f93",
-            circle: "#bc002d",
-            changing: "#024fa2",
-            cigar: "#000",
-            flash: "#00247d",
-            diamond: "#ef2b2d",
-            formation: "#dc143c",
-            egg: "#d52b1e",
-            star: "#e30a17",
-            cylinder: "#00247d",
-            chevron: "#b22234",
-        }
+            light: [
+                { offset: 0, color: '#00c6fb' },
+                { offset: 1, color: '#005bea' },
+            ],
+            unknown: [
+                { offset: 0, color: '#87F1C0' },
+                { offset: 1, color: '#8CDEE0' },
+            ],
+            disk: [
+                { offset: 0, color: '#f4d03f' },
+                { offset: 1, color: '#16a085' },
+            ],
+            cube: [
+                { offset: 0, color: '#65DFDD' },
+                { offset: 1, color: '#AE95CB' },
+            ],
+            triangle: [
+                { offset: 0, color: '#AFEDD0' },
+                { offset: 1, color: '#9B9AE1' },
+            ],
+            sphere: [
+                { offset: 0, color: '#27EEA0' },
+                { offset: 1, color: '#06ABEE' },
+            ],
+            other: [
+                { offset: 0, color: '#85C0D1' },
+                { offset: 1, color: '#7158DF' },
+            ],
+            orb: [
+                { offset: 0, color: '#84F9A6' },
+                { offset: 1, color: '#08CCFA' },
+            ],
+            fireball: [
+                { offset: 0, color: '#1AC5E2' },
+                { offset: 1, color: '#8766F0' },
+            ],
+            circle: [
+                { offset: 0, color: '#CA93CF' },
+                { offset: 1, color: '#8C49DD' },
+            ],
+            changing: [
+                { offset: 0, color: '#81E4D3' },
+                { offset: 1, color: '#CAAFF6' },
+            ],
+            cigar: [
+                { offset: 0, color: '#20E2D7' },
+                { offset: 1, color: '#F9FEA5' },
+            ],
+            flash: [
+                { offset: 0, color: '#B6CEE8' },
+                { offset: 1, color: '#F578DC' },
+            ],
+            diamond: [
+                { offset: 0, color: '#C8E6C9' },
+                { offset: 1, color: '#7CB342' },
+            ],
+            formation: [
+                { offset: 0, color: '#D3EFBE' },
+                { offset: 1, color: '#EFC7BE' },
+            ],
+            egg: [
+                { offset: 0, color: '#FFCC80' },
+                { offset: 1, color: '#FFA726' },
+            ],
+            star: [
+                { offset: 0, color: '#FFD54F' },
+                { offset: 1, color: '#FF9800' },
+            ],
+            cylinder: [
+                { offset: 0, color: '#90A4AE' },
+                { offset: 1, color: '#607D8B' },
+            ],
+            chevron: [
+                { offset: 0, color: '#9FA8DA' },
+                { offset: 1, color: '#5C6BC0' },
+            ],
+        };
         axios.all([
             axios.get('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
             axios.get('http://49.232.241.171:8080/ufo/yearShapeNum')
@@ -110,8 +167,19 @@ export default {
                         type: 'bar',
                         itemStyle: {
                             color: function (param) {
-                                return stateColors[param.value[3]] || '#5470c6';
-                            }
+                                var type = param.value[3];
+                                if (type in stateColors) {
+                                    return new echarts.graphic.LinearGradient(
+                                        0,
+                                        0,
+                                        1,
+                                        1,
+                                        stateColors[type]
+                                    );
+                                } else {
+                                    return '#5470c6';
+                                }
+                            },
                         },
                         encode: {
                             x: dimension,

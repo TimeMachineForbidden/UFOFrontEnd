@@ -39,11 +39,9 @@ export default {
                         fontFamily: 'Play',
                         fontWeight: 'bold',
                         color: function () {
-                            return 'rgb(' + [
-                                Math.round(Math.random() * 160),
-                                Math.round(Math.random() * 160),
-                                Math.round(Math.random() * 160)
-                            ].join(',') + ')';
+                            return 'rgb(' + [Math.round(Math.random() * 200 + 55),
+                            Math.round(Math.random() * 200 + 55),
+                            Math.round(Math.random() * 200 + 55)].join(',') + ')';
                         }
                     },
                     emphasis: {

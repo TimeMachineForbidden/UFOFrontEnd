@@ -43,9 +43,13 @@ export default {
             }
             option = {
                 visualMap: {
-                    show: false,
-                    min: 0,
-                    max: 2200
+                    show: true,
+                    min: -300,
+                    max: 1500
+                    // ,
+                    // inRange:{
+                    //     color:['#18EEC5', '#038044']
+                    // }
                 },
                 calendar: {
                     range: '2024'

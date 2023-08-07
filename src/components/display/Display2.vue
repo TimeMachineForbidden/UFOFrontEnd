@@ -42,6 +42,6 @@ export default {
 .overbox {
     height: 100%;
     width: 100%;
-    background-image: url(../../assets/b1.jpg);
+    background-image: url(../../assets/suneat.jpg);
 }
 </style>

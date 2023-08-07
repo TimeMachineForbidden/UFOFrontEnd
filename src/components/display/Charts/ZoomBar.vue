@@ -67,17 +67,17 @@ export default {
                         showBackground: true,
                         itemStyle: {
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                { offset: 0, color: '#83bff6' },
-                                { offset: 0.5, color: '#188df0' },
-                                { offset: 1, color: '#188df0' }
+                                { offset: 0, color: '#E19CFF' },
+                                { offset: 0.6, color: '#9444FF' },
+                                { offset: 1, color: '#5F32B0' }
                             ])
                         },
                         emphasis: {
                             itemStyle: {
                                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                    { offset: 0, color: '#2378f7' },
-                                    { offset: 0.7, color: '#2378f7' },
-                                    { offset: 1, color: '#83bff6' }
+                                    { offset: 0, color: '#5F32B0' },
+                                    { offset: 0.4, color: '#9444FF' },
+                                    { offset: 1, color: '#E19CFF' }
                                 ])
                             }
                         },
