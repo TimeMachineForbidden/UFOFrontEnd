@@ -13,7 +13,7 @@ export default {
     },
     mounted() {
 
-        axios.get("http://49.232.241.171:8080/ufo/shape").then((response) => {
+        axios.get("http://49.232.241.171:8080/api/ufo/shape").then((response) => {
             if (response.status === 200) {
                 var chartDom = document.getElementById('myChartP');
                 var myChart = echarts.init(chartDom);

@@ -18,7 +18,7 @@ export default {
     },
     mounted() {
         let _this = this
-        axios.get("http://49.232.241.171:8080/ufo/monthDayNum").then((response) => {
+        axios.get("http://49.232.241.171:8080/api/ufo/monthDayNum").then((response) => {
             _this.candata = response.data.data
 
             var chartDom = document.getElementById('myChart');

@@ -86,7 +86,7 @@ export default {
             }, (error) => {
                 return Promise.reject(error);
             });
-            axios.get("http://49.232.241.171:8080/reports/check", { params: this.queryinfo }).then((response) => {
+            axios.get("http://49.232.241.171:8080/api/reports/check", { params: this.queryinfo }).then((response) => {
                 console.log(response.data.data.records)
                 this.userlist = response.data.data.records;
                 console.log(response.data.data.count)
@@ -119,7 +119,7 @@ export default {
                 return Promise.reject(error);
             });
             console.log(_thisid)
-            axios.put("http://49.232.241.171:8080/reports/pass" + "?id=" + _thisid).
+            axios.put("http://49.232.241.171:8080/api/reports/pass" + "?id=" + _thisid).
                 then((response) => {
                     if (response.data.msg === 'success') {
                         ElMessage.success('Successfully approved a report');

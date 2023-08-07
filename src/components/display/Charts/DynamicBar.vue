@@ -100,10 +100,8 @@ export default {
             ],
         };
         axios.all([
-            axios.get('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
-            axios.get('http://49.232.241.171:8080/ufo/yearShapeNum')
-        ]).then(axios.spread(function (res1, res0) {
-            const flags = res1.data;
+            axios.get('http://49.232.241.171:8080/api/ufo/yearShapeNum')
+        ]).then(axios.spread(function (res0) {
             const data = res0.data.data;
             // 处理数据，获取年份列表
             const years = [];

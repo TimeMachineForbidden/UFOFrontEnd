@@ -1,7 +1,6 @@
 <template>
     <div class="dis5">
         <WordsCloud>
-
         </WordsCloud>
     </div>
 </template>
@@ -16,7 +15,6 @@ export default {
 .dis5 {
     height: 100%;
     width: 100%;
-
     background-image: url(../../assets/galaxy.png) no-repeat;
     background-size: cover;
 }

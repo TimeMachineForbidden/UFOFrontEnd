@@ -12,7 +12,7 @@ export default {
         const echartDom = document.getElementById('myChartWC1')
         const myChartWC = echarts.init(echartDom)
         myChartWC.showLoading()
-        axios.get("http://49.232.241.171:8080/ufo/words").then((response) => {
+        axios.get("http://49.232.241.171:8080/api/ufo/words").then((response) => {
             myChartWC.hideLoading()
             const option = {
                 tooltip: {

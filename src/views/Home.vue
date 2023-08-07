@@ -56,6 +56,14 @@
                                     <span>Distribution</span>
                                 </template>
                             </el-menu-item>
+                            <el-menu-item index="/dis5">
+                                <template #title>
+                                    <el-icon>
+                                        <Position />
+                                    </el-icon>
+                                    <span>Distribution</span>
+                                </template>
+                            </el-menu-item>
                         </el-sub-menu>
                         <el-sub-menu index="2">
                             <template #title>

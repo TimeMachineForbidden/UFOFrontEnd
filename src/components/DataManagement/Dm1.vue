@@ -196,7 +196,7 @@ export default {
     },
     methods: {
         getReportList() {
-            axios.get("http://49.232.241.171:8080/reports/list", { params: this.queryinfo }).then((response) => {
+            axios.get("http://49.232.241.171:8080/api/reports/list", { params: this.queryinfo }).then((response) => {
                 console.log(response.data.data.records)
                 this.userlist = response.data.data.records;
                 console.log(response.data.data.count)
@@ -226,7 +226,7 @@ export default {
                 if (!valid) {
                     return
                 } else {
-                    axios.post("http://49.232.241.171:8080/reports/submit", {
+                    axios.post("http://49.232.241.171:8080/api/reports/submit", {
                         datetime: '2023-07-30T22:30:00',
                         city: this.addForm.city,
                         state: this.addForm.state,

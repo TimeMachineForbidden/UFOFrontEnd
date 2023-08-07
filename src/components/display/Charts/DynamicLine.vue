@@ -26,7 +26,7 @@ export default {
             'Arizona',
             'Ohio'
         ];
-        axios.get("http://49.232.241.171:8080/ufo/yearStateNum").then((response) => {
+        axios.get("http://49.232.241.171:8080/api/ufo/yearStateNum").then((response) => {
             run(response.data.data);
         });
         function run(_rawData) {

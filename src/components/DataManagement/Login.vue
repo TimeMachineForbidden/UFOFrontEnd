@@ -74,7 +74,7 @@ export default {
                     return
                 }
                 else {
-                    axios.post("http://49.232.241.171:8080/login", {
+                    axios.post("http://49.232.241.171:8080/api/login", {
                         email: this.loginData.email,
                         password: this.loginData.password
                     }).then((response) => {

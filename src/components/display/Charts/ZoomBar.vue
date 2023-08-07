@@ -12,7 +12,7 @@ export default {
         }
     },
     mounted() {
-        axios.get("http://49.232.241.171:8080/ufo/timeSection").then((respones) => {
+        axios.get("http://49.232.241.171:8080/api/ufo/timeSection").then((respones) => {
             var chartDom = document.getElementById('myChartZB');
             var myChart = echarts.init(chartDom);
             var option;
