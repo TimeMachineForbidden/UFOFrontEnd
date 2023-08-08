@@ -21,7 +21,7 @@ export default {
                 },
                 series: [{
                     type: 'wordCloud',
-                    shape: 'diamond',
+                    shape: 'cardioid',
                     keepAspect: false,
                     left: 'center',
                     top: 'center',
