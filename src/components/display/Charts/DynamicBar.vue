@@ -16,7 +16,7 @@ export default {
     mounted() {
         var ROOT_PATH = 'https://echarts.apache.org/examples';
         var chartDom = document.getElementById('myChartDBar');
-        var myChart = echarts.init(chartDom);
+        var myChart = echarts.init(chartDom, 'dark');
         var option;
         const updateFrequency = 2000;
         const dimension = 0;
@@ -160,6 +160,7 @@ export default {
                 },
                 series: [
                     {
+                        name: 'Dynamic Changes in Historical Cumulative Count and Ranking of UFO Shapes (1950-2023)',
                         realtimeSort: true,
                         seriesLayoutBy: 'column',
                         type: 'bar',
@@ -193,6 +194,10 @@ export default {
                         }
                     }
                 ],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a}:{b}  '
+                },
                 // Disable init animation.
                 animationDuration: 0,
                 animationDurationUpdate: updateFrequency,

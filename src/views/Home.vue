@@ -10,7 +10,7 @@
             </el-header>
             <el-container>
                 <el-aside :width="isCollapse ? '64px' : '190px'">
-                    <el-menu active-text-color="#ffd04b" background-color="#333744" class="el-menu-vertical-demo"
+                    <el-menu active-text-color="#00BFFF" background-color="#333744" class="el-menu-vertical-demo"
                         text-color="#fff" unique-opened :collapse="isCollapse" :collapse-transition="false" :router="true">
                         <div class="toggle-button" @click="toggleCol">
                             <el-icon>
@@ -61,7 +61,15 @@
                                     <el-icon>
                                         <Position />
                                     </el-icon>
-                                    <span>Distribution</span>
+                                    <span>WordCloud</span>
+                                </template>
+                            </el-menu-item>
+                            <el-menu-item index="/dis6">
+                                <template #title>
+                                    <el-icon>
+                                        <Watch />
+                                    </el-icon>
+                                    <span>MonthAndHours</span>
                                 </template>
                             </el-menu-item>
                         </el-sub-menu>
@@ -123,7 +131,8 @@ import {
     CircleCheck,
     EditPen,
     Position,
-    Pointer
+    Pointer,
+    Watch
 } from '@element-plus/icons-vue'
 </script>
 <script>
@@ -137,8 +146,10 @@ export default {
     data() {
         return {
             isCollapse: false,
+            isD1P1: true,
             isD2P1: true,
             isD3P1: true,
+            isD6P1: true
         }
     },
     created() {
@@ -169,6 +180,26 @@ export default {
                     else {
                         this.isD2P1 = !this.isD2P1;
                         this.$router.push('/dis2p2');
+                    }
+                }
+                if (currentPath === '/dis1p2' || currentPath === '/dis1') {
+                    if (this.isD1P1) {
+                        this.isD1P1 = !this.isD1P1;
+                        this.$router.push('/dis1p2');
+                    }
+                    else {
+                        this.isD1P1 = !this.isD1P1;
+                        this.$router.push('/dis1');
+                    }
+                }
+                if (currentPath === '/dis6p2' || currentPath === '/dis6') {
+                    if (this.isD6P1) {
+                        this.isD6P1 = !this.isD6P1;
+                        this.$router.push('/dis6p2');
+                    }
+                    else {
+                        this.isD6P1 = !this.isD6P1;
+                        this.$router.push('/dis6');
                     }
                 }
             }

@@ -14,7 +14,7 @@ export default {
     },
     mounted() {
         var chartDom = document.getElementById('myChartLine');
-        var myChart = echarts.init(chartDom);
+        var myChart = echarts.init(chartDom, 'dark');
         var option;
         const states = [
             'California',
@@ -84,6 +84,14 @@ export default {
                     },
                     ...datasetWithFilters
                 ],
+                title: {
+                    text: 'Dynamic Changes in Historical Cumulative UFO Sightings by Region (1950-2023) - Line-Race Graph',
+                    textStyle: {
+                        fontFamily: 'Play',
+                        color: 'white'
+                    },
+                    left: 'left'
+                },
                 tooltip: {
                     order: 'valueDesc',
                     trigger: 'axis'

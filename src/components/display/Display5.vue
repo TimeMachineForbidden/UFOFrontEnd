@@ -15,7 +15,7 @@ export default {
 .dis5 {
     height: 100%;
     width: 100%;
-    background-image: url(../../assets/galaxy.png) no-repeat;
+    background-image: url(../../assets/bg2.png);
     background-size: cover;
 }
 </style>

@@ -4,7 +4,7 @@
             <ZoomBar></ZoomBar>
         </div>
         <div class="insidebox2">
-            <WordsCloud></WordsCloud>
+            <IfImages></IfImages>
         </div>
         <div class="insidebox3">
             <Pie></Pie>
@@ -15,6 +15,7 @@
 import ZoomBar from './Charts/ZoomBar.vue';
 import WordsCloud from './Charts/wordsCloud.vue';
 import Pie from './Charts/Pie.vue';
+import IfImages from '../Dynamic/IfImages.vue';
 
 
 export default {
@@ -23,7 +24,7 @@ export default {
     },
     mounted() {
     },
-    components: { ZoomBar, WordsCloud, Pie }
+    components: { ZoomBar, WordsCloud, Pie, IfImages }
 }
 </script>
 <style>

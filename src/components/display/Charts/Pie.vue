@@ -20,7 +20,8 @@ export default {
                 var option;
                 option = {
                     title: {
-                        text: 'Shape ',
+                        show: false,
+                        text: 'Rose Diagram of UFO Quantities by Shape',
                         textStyle: {
                             fontFamily: 'Play',
                             color: 'white'
@@ -34,7 +35,7 @@ export default {
 
                     series: [
                         {
-                            name: '形状占比',
+                            name: 'Rose Diagram of UFO Quantities by Shape',
                             type: 'pie',
                             radius: [20, 110],
                             center: ['50%', '50%'],

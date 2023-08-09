@@ -27,7 +27,7 @@ export default {
             }
             option = {
                 title: {
-                    text: 'Time Distribution',
+                    text: 'UFO Appearance Duration Interval Distribution Bar Chart',
                     subtext: '点击、滚动放大',
                     textStyle: {
                         fontFamily: 'Play',

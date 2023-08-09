@@ -9,6 +9,14 @@
                 <div class="imgbox">
                     <img src="image/space-observatory.png" style="width: 150px; height: 150px" />
                 </div>
+                <div class="buttonbox" @click="handleClick">
+                    <el-button color="#E6E6FA" style="font-family: 'Play', sans-serif;
+        font-family: 'PT Serif', serif;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Ubuntu', sans-serif; 
+        color: #32CD32;" round>Dive in</el-button>
+                </div>
             </div>
         </div>
         <div id="container">
@@ -57,9 +65,21 @@ onMounted(() => {
     }
 });
 </script>
-
+<script>
+export default {
+    data() {
+        return {}
+    },
+    methods: {
+        handleClick() {
+            this.$router.push('/home')
+        }
+    }
+}
+</script>
 <style scoped lang="less">
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Play:wght@700&family=Ubuntu:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Play:wght@700&family=Satisfy&family=Space+Grotesk&family=Ubuntu:ital@1&display=swap');
 
 .welcome {
     height: 100%;
@@ -82,14 +102,30 @@ onMounted(() => {
     }
 
     .insidecontent h1 {
-        font-size: 40px;
+        font-size: 50px;
         font-family: "PT Serif", serif;
+        margin-bottom: 30px;
     }
 
     .insidecontent .imgbox {
         position: absolute;
-        top: 300px;
-        left: 0;
+        top: 350px;
+        left: 10;
+    }
+
+    .insidecontent .buttonbox {
+        position: absolute;
+        top: 400px;
+        left: 180px;
+    }
+
+    .insidecontent p {
+        font-family: 'Play', sans-serif;
+        font-family: 'PT Serif', serif;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        line-height: 30px;
     }
 }
 

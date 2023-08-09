@@ -22,7 +22,7 @@ export default {
             _this.candata = response.data.data
 
             var chartDom = document.getElementById('myChart');
-            var myChart = echarts.init(chartDom);
+            var myChart = echarts.init(chartDom, 'macarons');
             var option;
             function getVirtualData(year) {
 
@@ -42,14 +42,21 @@ export default {
                 return data;
             }
             option = {
+                title: {
+                    text: 'UFO Date Distribution Heatmap',
+                    textStyle: {
+                        fontFamily: 'Play',
+                        color: 'white'
+                    },
+                    left: 'left'
+                },
                 visualMap: {
                     show: true,
                     min: -300,
-                    max: 1500
-                    // ,
-                    // inRange:{
-                    //     color:['#18EEC5', '#038044']
-                    // }
+                    max: 1500,
+                    inRange: {
+                        color: ['#18EEC5', '#038044']
+                    }
                 },
                 calendar: {
                     range: '2024'
@@ -57,8 +64,15 @@ export default {
                 series: {
                     type: 'heatmap',
                     coordinateSystem: 'calendar',
-                    data: getVirtualData('2024')
-                }
+                    data: getVirtualData('2024'),
+                    color: ["#516b91",
+                        "#59c4e6",
+                        "#edafda",
+                        "#93b7e3",
+                        "#a5e7f0",
+                        "#cbb0e3"],
+                },
+
             };
 
             option && myChart.setOption(option);

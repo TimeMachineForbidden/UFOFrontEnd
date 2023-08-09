@@ -11,7 +11,7 @@ export default {
     },
     mounted() {
         var chartDom = document.getElementById('myChartSB');
-        var myChart = echarts.init(chartDom);
+        var myChart = echarts.init(chartDom, 'macarons');
         var option;
         const colors = ['#FFAE57', '#FF7853', '#EA5151', '#CC3F57', '#9A2555'];
         const bgColor = '#2E2733';
@@ -318,6 +318,14 @@ export default {
             }
         }
         option = {
+            title: {
+                text: 'Sunburst Chart of Categorizing Potential UFO Misidentifications',
+                textStyle: {
+                    fontFamily: 'Play',
+                    color: 'white'
+                },
+                left: 'left'
+            },
             backgroundColor: bgColor,
             color: colors,
             series: [
