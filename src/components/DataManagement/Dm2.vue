@@ -44,6 +44,16 @@
                 </span>
             </template>
         </el-dialog>
+        <el-dialog v-model="permissionsDialogVisible" title="Permission denied" width="50%" @close="handleperClose">
+            <span>Sorry, you do not have permission</span>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button type="primary" @click="handlepermissions">
+                        Confirm
+                    </el-button>
+                </span>
+            </template>
+        </el-dialog>
     </div>
 </template>
 
@@ -70,7 +80,8 @@ export default {
             userlist: [],
             total: 0,
             passDialogVisible: false,
-            processingrowid: ''
+            processingrowid: '',
+            permissionsDialogVisible: false
         }
     },
     created() {
@@ -87,10 +98,21 @@ export default {
                 return Promise.reject(error);
             });
             axios.get("http://49.232.241.171:8080/api/reports/check", { params: this.queryinfo }).then((response) => {
-                console.log(response.data.data.records)
-                this.userlist = response.data.data.records;
-                console.log(response.data.data.count)
-                this.total = response.data.data.count;
+                if (response.status === 401) {
+
+                }
+                else {
+                    console.log('assa')
+                    console.log(response.data.data.records)
+                    this.userlist = response.data.data.records;
+                    console.log(response.data.data.count)
+                    this.total = response.data.data.count;
+                }
+            }).catch((error) => {
+                console.log('hh401')
+                this.permissionsDialogVisible = true
+                console.log(error);
+
             })
         },
         //pagechange
@@ -137,6 +159,12 @@ export default {
             localStorage.removeItem('Authorization');
             let token = localStorage.getItem('Authorization');
             console.log(token);
+            this.$router.push('/fail');
+        },
+        handlepermissions() {
+            this.$router.push('/dm1');
+        },
+        handleperClose() {
             this.$router.push('/dm1');
         }
     }

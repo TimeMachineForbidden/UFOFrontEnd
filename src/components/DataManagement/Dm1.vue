@@ -5,9 +5,12 @@
         <el-breadcrumb-item>Report</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card class="box-card">
-        <el-row :gutter="30">
+        <el-row :gutter="870">
             <el-col :span="4">
                 <el-button type="info" @click="addDialogVisible = true">Add Report</el-button>
+            </el-col>
+            <el-col :span="4">
+                <el-button type="info" @click="handleD1Logout">Logout</el-button>
             </el-col>
         </el-row>
         <el-table :data="userlist" height="400" stripe>
@@ -196,12 +199,19 @@ export default {
     },
     methods: {
         getReportList() {
+            axios.interceptors.request.use((config) => {
+                if (localStorage.getItem('Authorization')) {
+                    config.headers.Authorization = localStorage.getItem('Authorization')
+                }
+                return config;
+            }, (error) => {
+                return Promise.reject(error);
+            });
             axios.get("http://49.232.241.171:8080/api/reports/list", { params: this.queryinfo }).then((response) => {
                 console.log(response.data.data.records)
                 this.userlist = response.data.data.records;
                 console.log(response.data.data.count)
                 this.total = response.data.data.count;
-
             })
         },
         //pagechange
@@ -226,6 +236,14 @@ export default {
                 if (!valid) {
                     return
                 } else {
+                    axios.interceptors.request.use((config) => {
+                        if (localStorage.getItem('Authorization')) {
+                            config.headers.Authorization = localStorage.getItem('Authorization')
+                        }
+                        return config;
+                    }, (error) => {
+                        return Promise.reject(error);
+                    });
                     axios.post("http://49.232.241.171:8080/api/reports/submit", {
                         datetime: '2023-07-30T22:30:00',
                         city: this.addForm.city,
@@ -248,6 +266,13 @@ export default {
                     })
                 }
             })
+        },
+        handleD1Logout() {
+            ElMessage.success('Successfully Logout')
+            localStorage.removeItem('Authorization');
+            let token = localStorage.getItem('Authorization');
+            console.log(token);
+            this.$router.push('/fail');
         }
     }
 }

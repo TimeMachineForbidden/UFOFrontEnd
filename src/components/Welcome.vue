@@ -17,6 +17,9 @@
         font-family: 'Ubuntu', sans-serif; 
         color: #32CD32;" round>Dive in</el-button>
                 </div>
+                <div class="press">
+                    <p>copyright© 2023 Look,UFO! NKCS Team YHLS</p>
+                </div>
             </div>
         </div>
         <div id="container">
@@ -117,6 +120,12 @@ export default {
         position: absolute;
         top: 400px;
         left: 180px;
+    }
+
+    .insidecontent .press {
+        position: absolute;
+        top: 550px;
+        left: 40px;
     }
 
     .insidecontent p {

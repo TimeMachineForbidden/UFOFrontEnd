@@ -20,6 +20,17 @@
                         </el-col>
                     </el-row>
                 </el-form-item>
+                <el-form-item class="elres">
+                    <el-row>
+                        <el-col>
+                            <span style="text-align: left;">If you do not have an account, please click <router-link
+                                    to="/register">here</router-link>
+                                to
+                                register.
+                            </span>
+                        </el-col>
+                    </el-row>
+                </el-form-item>
             </el-form>
         </div>
     </div>
@@ -65,7 +76,7 @@ export default {
     methods: {
         ...mapMutations(['changeLogin']),
         cancel() {
-            this.$router.push('/dm1');
+            this.$router.push('/fail');
         },
         login() {
             let _this = this;
@@ -78,12 +89,16 @@ export default {
                         email: this.loginData.email,
                         password: this.loginData.password
                     }).then((response) => {
-                        _this.userToken = 'Bearer ' + response.data.data
-                        _this.changeLogin({ Authorization: _this.userToken });
-                        _this.$router.push('/Dm2');
-                        ElMessage.success('Successfully Login')
+                        if (response.data.msg === 'success') {
+                            _this.userToken = 'Bearer ' + response.data.data
+                            _this.changeLogin({ Authorization: _this.userToken });
+                            _this.$router.push('/dm1');
+                            ElMessage.success('Successfully Login')
+                        }
+                        else {
+                            ElMessage.error('Incorrect username or password')
+                        }
                     }).catch(error => {
-                        ElMessage.error('Incorrect username or password');
                         console.log(error);
                     });
                 }
@@ -124,6 +139,10 @@ export default {
 
 .el-form {
     font-size: 30px !important;
+}
+
+.el-form .elres .el-form-item__content {
+    margin-left: 0 !important;
 }
 </style>
   

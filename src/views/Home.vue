@@ -10,7 +10,7 @@
             </el-header>
             <el-container>
                 <el-aside :width="isCollapse ? '64px' : '190px'">
-                    <el-menu active-text-color="#00BFFF" background-color="#333744" class="el-menu-vertical-demo"
+                    <el-menu active-text-color="#fff" background-color="#333744" class="el-menu-vertical-demo"
                         text-color="#fff" unique-opened :collapse="isCollapse" :collapse-transition="false" :router="true">
                         <div class="toggle-button" @click="toggleCol">
                             <el-icon>
